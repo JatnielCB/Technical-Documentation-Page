@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Php</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="source/style.css" type="text/css">
+</head>
+<body class="wrapper">
+      <nav id="navbar">
+        <header>Php Documentation</header>
+        <a href="#Introduction" class="nav-link"><p>Introduction</p></a>
+        <a href="#What_you_should_alredy_know" class="nav-link"><p>What you should alredy know</p></a>
+        <a href="#Hello_Word" class="nav-link"><p>Hello Word</p></a>
+        <a href="#PHP_Tags" class="nav-link"><p>PHP Tags</p></a>
+        <a href="#Variables" class="nav-link"><p>Variables</p></a>
+        <a href="#Reference" class="nav-link"><p>Reference</p></a>
+    </nav>
+
+    <main id="main-doc" >
+
+        <section id="Introduction" class="main-section">
+            <header class="title">Introduction</header>
+            <article>
+                <ul>
+                    <li><strong>What is PHP?</strong><p>PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used open source general-purpose scripting language that is especially suited for web development and can be embedded into HTML.</p><br></li>
+                    <li><strong>What can PHP do?</strong><p>Anything. PHP is mainly focused on server-side scripting, so you can do anything any other CGI program can do, such as collect form data, generate dynamic page content, or send and receive cookies.</p></li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="What_you_should_alredy_know" class="main-section">
+            <header class="title">What you should alredy know</header>
+            <article>
+                <p>This guide assumes you have the following basic background:</p>
+                <ul class="dot">
+                    <li >A general understanding of the Internet and the World Wide Web (WWW)</li>
+                    <li>Good working knowledge of HyperText Markup Language (HTML).</li>
+                    <li>Some programming experience.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="Hello_Word" class="main-section">
+            <header class="title">Hello Word</header>
+            <article>
+                <ul>
+                    <li><strong>What do i need?</strong><p>In this tutorial we assume that your server has activated support for PHP and that all files ending in .php are handled by PHP. On most servers, this is the default extension for PHP files, but ask your server administrator to be sure.</p><br></li>
+                    <li><strong>Once you have everything you need:</strong><p>Create a file named hello.php and put it in your web server's root directory (DOCUMENT_ROOT) with the following content:</p><br>
+                    <code class="codestyle"> 
+                        <span style="color: #000000">&lt;html&gt;
+                            <br>&nbsp;&lt;head&gt;
+                            <br>&nbsp;&nbsp;&lt;title&gt;PHP&nbsp;Test&lt;/title&gt;
+                            <br>&nbsp;&lt;/head&gt;
+                            <br>&nbsp;&lt;body&gt;
+                            <br>&nbsp;  <span style="color: #0000BB">&lt;?php&nbsp;</span>
+                                        <span style="color: #007700">echo&nbsp;</span>
+                                        <span style="color: #DD0000">'&lt;p&gt;Hello&nbsp;World&lt;/p&gt;'</span>
+                                        <span style="color: #007700">;&nbsp;</span>
+                                        <span style="color: #0000BB">?&gt;</span>&nbsp;
+                            <br>&nbsp;&lt;/body&gt;
+                            <br>&lt;/html&gt;
+                        </span>
+                    </code><br>
+                    <p>Use your browser to access the file with your web server's URL, ending with the /hello.php file reference. When developing locally this URL will be something like http://localhost/hello.php or http://127.0.0.1/hello.php but this depends on the web server's configuration. If everything is configured correctly, this file will be parsed by PHP and the following output will be sent to your browser:</p><br>
+                   <code class="codestyle">
+                    <span style="color: #000000">&lt;html&gt;
+                        <br>&nbsp;&lt;head&gt;
+                        <br>&nbsp;&nbsp;&lt;title&gt;PHP&nbsp;Test&lt;/title&gt;
+                        <br>&nbsp;&lt;/head&gt;
+                        <br>&nbsp;&lt;body&gt;
+                        <br>&nbsp;&lt;p&gt;Hello&nbsp;Word&lt;/p&gt;
+                        <br>&nbsp;&lt;/body&gt;
+                        <br>&lt;/html&gt;
+                    </span>
+                   </code><br>
+                    <p>This program is extremely simple and you really did not need to use PHP to create a page like this. All it does is display: Hello World using the PHP echo statement. Note that the file does not need to be executable or special in any way. The server finds out that this file needs to be interpreted by PHP because you used the ".php" extension, which the server is configured to pass on to PHP. Think of this as a normal HTML file which happens to have a set of special tags available to you that do a lot of interesting things.</p>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="PHP_Tags" class="main-section">
+            <header class="title">PHP Tags</header>
+            <article>
+                <p>When PHP parses a file, it looks for opening and closing tags, which are <?php and ?> which tell PHP to start and stop interpreting the code between them. Parsing in this manner allows PHP to be embedded in all sorts of different documents, as everything outside of a pair of opening and closing tags is ignored by the PHP parser.</p><br>
+                <p>PHP includes a short echo tag <code>&lt;?=</code> which is a short-hand to the more verbose <code>&lt;?php echo</code>.</p><br>
+                <p><strong>Example #1 PHP Opening and Closing Tags</strong></p><br>
+                <code class="codestyle">
+                    <span style="color: #000000">
+                    1.&nbsp;&nbsp;
+                    <span style="color: #0000BB">&lt;?php&nbsp;</span>
+                    <span style="color: #007700">echo&nbsp;</span>
+                    <span style="color: #DD0000">'if&nbsp;you&nbsp;want&nbsp;to&nbsp;serve&nbsp;PHP&nbsp;code&nbsp;in&nbsp;XHTML&nbsp;or&nbsp;XML&nbsp;documents,
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;use&nbsp;these&nbsp;tags'</span>
+                        <span style="color: #007700">;&nbsp;</span>
+                        <span style="color: #0000BB">?&gt;<br></span>
+                        <br>2.&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;the&nbsp;short&nbsp;echo&nbsp;tag&nbsp;to&nbsp;
+                        <span style="color: #0000BB">&lt;?=&nbsp;</span>
+                        <span style="color: #DD0000">'print&nbsp;this&nbsp;string'&nbsp;</span>
+                        <span style="color: #0000BB">?&gt;</span>.
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;It's&nbsp;equivalent&nbsp;to&nbsp;
+                        <span style="color: #0000BB">&lt;?php&nbsp;</span>
+                        <span style="color: #007700">echo&nbsp;</span>
+                        <span style="color: #DD0000">'print&nbsp;this&nbsp;string'&nbsp;</span>
+                        <span style="color: #0000BB">?&gt;</span>.
+                        <br>
+                        <br>3.&nbsp;&nbsp;&lt;?&nbsp;echo&nbsp;'this&nbsp;code&nbsp;is&nbsp;within&nbsp;short&nbsp;tags,&nbsp;but&nbsp;will&nbsp;only&nbsp;work&nbsp;'.
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'if&nbsp;short_open_tag&nbsp;is&nbsp;enabled';&nbsp;?&gt;
+                    </span>
+                    </code><br>
+                    <p>Short tags (example three) are available by default but can be disabled either via the short_open_tag php.ini configuration file directive, or are disabled by default if PHP is built with the --disable-short-tags configuration.</p>
+            </article>
+        </section>
+
+        <section id="Variables" class="main-section">
+            <header class="title">Variables</header>
+            <article>
+                <p>Variables in PHP are represented by a dollar sign followed by the name of the variable. The variable name is case-sensitive.</p><br>
+                <p>Variable names follow the same rules as other labels in PHP. A valid variable name starts with a letter or underscore, followed by any number of letters, numbers, or underscores.</p><br>
+                <code class="codestyle">
+                    <span style="color: #000000">
+                    <span style="color: #0000BB">&lt;?php<br>$var&nbsp;</span>
+                    <span style="color: #007700">=&nbsp;</span>
+                    <span style="color: #DD0000">'Bob'</span>
+                    <span style="color: #007700">;<br></span>
+                    <span style="color: #0000BB">$Var&nbsp;</span>
+                    <span style="color: #007700">=&nbsp;</span>
+                    <span style="color: #DD0000">'Joe'</span>
+                    <span style="color: #007700">;<br>echo&nbsp;</span>
+                    <span style="color: #DD0000">"</span>
+                    <span style="color: #0000BB">$var</span>
+                    <span style="color: #DD0000">,&nbsp;</span>
+                    <span style="color: #0000BB">$Var</span>
+                    <span style="color: #DD0000">"</span>
+                    <span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span style="color: #FF8000">//&nbsp;outputs&nbsp;"Bob,&nbsp;Joe"<br><br></span>
+                    <span style="color: #007700">$</span>
+                    <span style="color: #0000BB">4site&nbsp;</span>
+                    <span style="color: #007700">=&nbsp;</span>
+                    <span style="color: #DD0000">'not&nbsp;yet'</span>
+                    <span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span style="color: #FF8000">//&nbsp;invalid;&nbsp;starts&nbsp;with&nbsp;a&nbsp;number<br></span>
+                    <span style="color: #0000BB">$_4site&nbsp;</span>
+                    <span style="color: #007700">=&nbsp;</span>
+                    <span style="color: #DD0000">'not&nbsp;yet'</span>
+                    <span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span style="color: #FF8000">//&nbsp;valid;&nbsp;starts&nbsp;with&nbsp;an&nbsp;underscore<br></span>
+                    <span style="color: #0000BB">$täyte&nbsp;</span>
+                    <span style="color: #007700">=&nbsp;</span>
+                    <span style="color: #DD0000">'mansikka'</span>
+                    <span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span style="color: #FF8000">//&nbsp;valid;&nbsp;'ä'&nbsp;is&nbsp;(Extended)&nbsp;ASCII&nbsp;228.<br></span>
+                    <span style="color: #0000BB">?&gt;</span>
+                    </span>
+                    </code><br>
+                    <p>By default, variables are always assigned by value. That is to say, when you assign an expression to a variable, the entire value of the original expression is copied into the destination variable. This means, for instance, that after assigning one variable's value to another, changing one of those variables will have no effect on the other.</p><br>
+                    <p></p>
+            </article>
+        </section>
+
+        <section id="Reference" class="main-section">
+            <header class="title" >Reference</header>
+            <article>
+            <ul class="dot">
+                <li>If you want to learn more about PHP, go to: <a href="https://www.php.net/manual/en/" style="color: aqua;" target="_blank">php.net</a></li>
+            </ul>
+        </article>
+        </section>
+
+    </main>
+
+    
+</body>
+</html>
